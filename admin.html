@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Administrateur — Gestion des Horaires</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container" id="main">
+    <header>
+      <h1>Panel Administrateur</h1>
+      <nav>
+        <button class="nav-btn active" data-section="sectionEmployes" id="tabEmployes">Employés</button>
+        <button class="nav-btn" data-section="sectionShifts" id="tabShifts">Shifts</button>
+        <button class="nav-btn" data-section="sectionPointages" id="tabPointages">Pointages</button>
+        <button onclick="location.href='index.html'">Retour</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Employés -->
+      <section id="sectionEmployes" class="admin-section">
+        <div class="section-head">
+          <h2>Gestion des Employés</h2>
+          <button id="btnAjouterEmploye" class="btn-primary">Ajouter un employé</button>
+        </div>
+        <div id="listeEmployes" class="liste-container"></div>
+      </section>
+
+      <!-- Shifts -->
+      <section id="sectionShifts" class="admin-section hidden">
+        <h2>Gestion des Shifts</h2>
+        <form id="formShift" class="form-container">
+          <select id="selectEmployeShift" required>
+            <option value="">Sélectionner un employé</option>
+          </select>
+          <input type="date" id="dateShift" required/>
+          <input type="time" id="heureDebut" required/>
+          <input type="time" id="heureFin" required/>
+          <button id="btnAjouterShift" class="btn-primary" type="submit">Ajouter Shift</button>
+        </form>
+        <div id="listeShifts" class="liste-container"></div>
+      </section>
+
+      <!-- Pointages -->
+      <section id="sectionPointages" class="admin-section hidden">
+        <h2>Historique des Pointages</h2>
+        <div class="filtres">
+          <select id="selectEmployePointage">
+            <option value="">Tous les employés</option>
+          </select>
+          <input type="date" id="datePointage"/>
+          <button id="btnFiltrer" class="btn-secondary">Filtrer</button>
+        </div>
+        <div id="listePointages" class="liste-container"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal Employé -->
+  <div id="modalEmploye" class="modal hidden">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="titreModal">Ajouter un employé</h3>
+      <form id="formEmploye">
+        <input type="text" id="nomEmploye" placeholder="Nom" required/>
+        <input type="text" id="prenomEmploye" placeholder="Prénom" required/>
+        <input type="email" id="emailEmploye" placeholder="Email (optionnel)"/>
+        <button type="submit" class="btn-primary">Enregistrer</button>
+      </form>
+
+      <div id="qrCodeContainer" class="hidden">
+        <h4>QR Code de l'employé</h4>
+        <canvas id="qrCanvas" width="256" height="256" style="margin:auto;display:block"></canvas>
+        <button id="btnGenererQR" class="btn-secondary">Régénérer QR Code</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Librairies -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employé — Pointage</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Pointage Employé</h1>
+      <button onclick="location.href='index.html'">Retour</button>
+    </header>
+
+    <main>
+      <div class="scanner-section">
+        <h2>Scanner votre QR Code</h2>
+
+        <div id="httpsWarning" class="hidden" style="margin-bottom:10px;color:#b45309;background:#fff7ed;border:1px solid #fde68a;padding:10px;border-radius:6px;">
+          La caméra nécessite un contexte sécurisé (HTTPS ou localhost). Utilisez <b>Importer une image</b> si la caméra est bloquée.
+        </div>
+
+        <div style="display:flex; gap:10px; justify-content:center; margin-bottom:10px;">
+          <button id="btnStartScan" class="btn-primary">Démarrer le scan</button>
+          <label class="btn-secondary" for="fileInput" style="cursor:pointer;">Importer une image</label>
+          <input type="file" id="fileInput" accept="image/*" style="display:none"/>
+        </div>
+
+        <div id="reader"></div>
+        <div id="result"></div>
+      </div>
+
+      <div class="info-section hidden" id="infoEmploye">
+        <h2>Informations de pointage</h2>
+        <p id="nomEmployePointage"></p>
+        <p id="statutPointage"></p>
+        <p id="heurePointage"></p>
+        <button id="btnPointer" class="btn-primary">Pointer</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.10/html5-qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

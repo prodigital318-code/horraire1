@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestion des Horaires</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Gestion des Horaires — v2</h1>
+    </header>
+
+    <main class="main-menu">
+      <div class="card" onclick="location.href='admin.html'">
+        <h2>Administrateur</h2>
+        <p>Créer employés, shifts, voir pointages</p>
+      </div>
+
+      <div class="card" onclick="location.href='employe.html'">
+        <h2>Employé</h2>
+        <p>Scanner votre QR ou importer une photo</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+</body>
+</html>
